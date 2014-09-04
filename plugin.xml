@@ -28,7 +28,7 @@
 
 			<source-file src="src/android/BluetoothDevicePlugin.java"
 				target-dir="src/com/leotech/bluetooth"/>
-			<source-file src="src/android/BleDivice.java"
+			<source-file src="src/android/BleDevice.java"
 				target-dir="src/com/leotech/bluetooth"/>        
 			<source-file src="src/android/lifesense-ble-1.2.2.jar"
 				target-dir="src/com/leotech/bluetooth"/> 
