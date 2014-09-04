@@ -9,6 +9,7 @@ package com.leotech.plugin;
     import org.apache.cordova.CordovaWebView;
     import org.json.JSONArray;
     import org.json.JSONException;
+    import lifesense.ble.commom.DeviceType;
     import org.json.JSONObject;
     import java.util.ArrayList;
     /**
