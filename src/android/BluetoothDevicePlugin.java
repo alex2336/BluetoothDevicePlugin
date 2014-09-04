@@ -39,8 +39,13 @@ package com.leotech.plugin;
         private void listKnownDevices(CallbackContext callbackContext) {
 
             JSONObject json = new JSONObject();
-            for(int i=0;i<tempList.size();i++){
-                json.put(tempList.get(i).getAddress(),tempList.get(i).getName());
+            try{
+                for(int i=0;i<tempList.size();i++){
+
+                    json.put(tempList.get(i).getAddress(),tempList.get(i).getName());
+                }
+            }catch(Exception e){
+                e.printStackTrace();
             }
             PluginResult result = new PluginResult(PluginResult.Status.OK, json);
             callbackContext.sendPluginResult(result);
