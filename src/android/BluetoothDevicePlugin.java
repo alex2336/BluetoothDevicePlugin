@@ -2,11 +2,14 @@ package com.leotech.plugin;
     
     import org.apache.cordova.CordovaPlugin;
     import org.apache.cordova.CallbackContext;
-
+    import lifesense.ble.commom.DeviceManagerCallback;
+    import org.apache.cordova.PluginResult;
+    import lifesense.ble.commom.BleDeviceManager;
+    
     import org.json.JSONArray;
     import org.json.JSONException;
     import org.json.JSONObject;
-
+    import java.util.ArrayList;
     /**
      * This class echoes a string called from JavaScript.
      */

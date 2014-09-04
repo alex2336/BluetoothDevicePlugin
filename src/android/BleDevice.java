@@ -1,5 +1,4 @@
-package com.test.ble.ui;
-
+package com.leotech.plugin;
 import android.os.Parcel;
 import android.os.Parcelable;
 
