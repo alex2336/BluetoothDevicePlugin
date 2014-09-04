@@ -53,7 +53,7 @@ package com.leotech.plugin;
                 {
                     if(lsDevice!=null&&!deviceExists(lsDevice.getDeviceName()))
                     {
-                        BleDevice bleDevice=getBleDevice(
+                        BleDevice bleDevice=new BleDevice(
                                    lsDevice.getDeviceName(),
                                    lsDevice.getDeviceAddress(),
                                    lsDevice.getDeviceType(),
