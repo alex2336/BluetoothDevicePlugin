@@ -1,5 +1,5 @@
 package com.leotech.plugin;
-    
+    import lifesense.ble.bean.LSDeviceInfo;
     import org.apache.cordova.CordovaPlugin;
     import org.apache.cordova.CallbackContext;
     import lifesense.ble.commom.DeviceManagerCallback;
