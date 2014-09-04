@@ -1,7 +1,7 @@
 package com.leotech.plugin;
 import android.os.Parcel;
 import android.os.Parcelable;
-
+import lifesense.ble.commom.DeviceType;
 public class BleDevice implements Parcelable {
 	public String name;
 	public String address;
