@@ -5,7 +5,8 @@ package com.leotech.plugin;
     import lifesense.ble.commom.DeviceManagerCallback;
     import org.apache.cordova.PluginResult;
     import lifesense.ble.commom.BleDeviceManager;
-    
+    import org.apache.cordova.CordovaInterface;
+    import org.apache.cordova.CordovaWebView;
     import org.json.JSONArray;
     import org.json.JSONException;
     import org.json.JSONObject;
@@ -38,7 +39,7 @@ package com.leotech.plugin;
 
             JSONObject json = new JSONObject();
             for(int i=0;i<tempList.size();i++){
-                json.put(tempList.get(i).getDeviceAddress(),tempList.get(i).getName());
+                json.put(tempList.get(i).getAddress(),tempList.get(i).getName());
             }
             PluginResult result = new PluginResult(PluginResult.Status.OK, json);
             callbackContext.sendPluginResult(result);
