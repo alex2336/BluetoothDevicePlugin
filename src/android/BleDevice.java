@@ -85,7 +85,7 @@ public class BleDevice implements Parcelable {
 	   scanRecord=in.readString();
 	   modelNumber=in.readString();
 	}
-	public BleDevice(String name,String address, DeviceType type, DeviceType modelNumber) {
+	public BleDevice(String name,String address, DeviceType type, String modelNumber) {
 	   this.name = name;
 	   this.address = address;
 	}
