@@ -7,7 +7,7 @@ var bluetoothDevicePlugin = {
             'startScanning', // with this action name
             [{test:"test"}]
         ); 
-     },
+     }
      getCurrentDevices:function(successCallback, errorCallback) {
         cordova.exec(
             successCallback, // success callback function

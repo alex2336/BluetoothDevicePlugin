@@ -1,4 +1,4 @@
-var bluetoothDevicePlugin = {
+cordova.define("org.apache.cordova.device.bluetoothDevicePlugin", function(require, exports, module) { var bluetoothDevicePlugin = {
     startScanning: function(successCallback, errorCallback) {
         cordova.exec(
             successCallback, // success callback function
@@ -7,7 +7,7 @@ var bluetoothDevicePlugin = {
             'startScanning', // with this action name
             [{test:"test"}]
         ); 
-     },
+     }
      getCurrentDevices:function(successCallback, errorCallback) {
         cordova.exec(
             successCallback, // success callback function
@@ -18,3 +18,4 @@ var bluetoothDevicePlugin = {
      }
 }
 module.exports = bluetoothDevicePlugin;
+});
