@@ -14,14 +14,14 @@ package com.leotech.plugin;
         private DeviceManagerCallback mDelegate;    
         private ArrayList<BleDevice> tempList=new ArrayList<BleDevice>();
         private BleDeviceManager bleDeviceManager;
-    	String ACTION_START_SCANNING = "startScanning";
+        String ACTION_START_SCANNING = "startScanning";
         String GET_CURRENT_DEVICES = "getCurrentDevices";
         @Override
         public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
             if (action.equals(ACTION_START_SCANNING)) {
                 startScanning();
                 return true;
-            }else if(action.equals(GET_CURRENT_DEVICES){
+            }else if(action.equals(GET_CURRENT_DEVICES)){
                 listKnownDevices(callbackContext);
                 return true;
             }
@@ -57,7 +57,7 @@ package com.leotech.plugin;
                         tempList.add(bleDevice);    
                     }
                 }
-            }
+            };
             bleDeviceManager=BleDeviceManager.getInstance(); 
             bleDeviceManager.initialize(this.cordova.getActivity().getApplicationContext(),mDelegate);
         }
