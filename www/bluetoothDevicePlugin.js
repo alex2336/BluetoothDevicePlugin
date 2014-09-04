@@ -9,3 +9,4 @@ var bluetoothDevicePlugin = {
         ); 
      }
 }
+module.exports = bluetoothDevicePlugin;
