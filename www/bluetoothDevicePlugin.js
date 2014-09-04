@@ -1,5 +1,5 @@
 var bluetoothDevicePlugin = {
-    createEvent: function(successCallback, errorCallback) {
+    startScanning: function(successCallback, errorCallback) {
         cordova.exec(
             successCallback, // success callback function
             errorCallback, // error callback function
