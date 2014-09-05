@@ -27,7 +27,7 @@ import android.util.Log;
 		@Override
 		public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 			if (action.equals(ACTION_START_SCANNING)) {
-				Log.d('CordovaLog:',"start scanning!");
+				Log.d("CordovaLog:","start scanning!");
 				startScanning();
 				return true;
 			}else if(action.equals(ACTION_STOP_SCANNING)){
