@@ -29,7 +29,11 @@
 			<source-file src="src/android/LifesenseBLEPlugin.java"
 				target-dir="src/com/leotech/plugin"/>
 			<source-file src="src/android/BleDevice.java"
-				target-dir="src/com/leotech/plugin"/>        
+				target-dir="src/com/leotech/plugin"/>     
+			<source-file src="src/android/TypeConversion.java"
+				target-dir="src/com/leotech/plugin"/>  
+			<source-file src="src/android/gson-2.2.4.jar"
+				target-dir="libs" framework="true"/>     
 			<source-file src="src/android/lifesense-ble-1.2.2.jar"
 				target-dir="libs" framework="true"/> 
 		</platform>
