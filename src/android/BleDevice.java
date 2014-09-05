@@ -2,6 +2,8 @@ package com.leotech.plugin;
 import android.os.Parcel;
 import android.os.Parcelable;
 import lifesense.ble.commom.DeviceType;
+import org.json.JSONObject;
+
 public class BleDevice implements Parcelable {
 	public String name;
 	public String address;
@@ -11,6 +13,20 @@ public class BleDevice implements Parcelable {
 	private int rssi;
 	private String scanRecord;
 	private String modelNumber;
+	public JSONObject getJson(){
+		try{
+			JSONObject json = new JSONObject();
+			json.put("name",name);
+			json.put("address",address);
+			json.put("sensorType",sensorType);
+			json.put("modelNumber",modelNumber);
+			json.put("key_id",key_id);
+			return json;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return null;
+	}
 	public int getRssi() {
 		return rssi;
 	}
@@ -65,15 +81,28 @@ public class BleDevice implements Parcelable {
 	}
 	//this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
 	public static final Parcelable.Creator<BleDevice> CREATOR = new Parcelable.Creator<BleDevice>() {
-	    public BleDevice createFromParcel(Parcel in) {
-	        return new BleDevice(in);
-	    }
+		public BleDevice createFromParcel(Parcel in) {
+			return new BleDevice(in);
+		}
 
-	    public BleDevice[] newArray(int size) {
-	        return new BleDevice[size];
-	    }
+		public BleDevice[] newArray(int size) {
+			return new BleDevice[size];
+		}
 	};
 
+	@Override
+	public String toString() {
+		return "{" +
+				"name:'" + name + '\'' +
+				", address:'" + address + '\'' +
+				", sensorType:" + sensorType +
+				", pairFlags:'" + pairFlags + '\'' +
+				", key_id:" + key_id +
+				", rssi:" + rssi +
+				", scanRecord:'" + scanRecord + '\'' +
+				", modelNumber:'" + modelNumber + '\'' +
+				'}';
+	}
 	// example constructor that takes a Parcel and gives you an object populated with it's values
 	private BleDevice(Parcel in) {
 	   name = in.readString();
@@ -85,10 +114,7 @@ public class BleDevice implements Parcelable {
 	   scanRecord=in.readString();
 	   modelNumber=in.readString();
 	}
-	public BleDevice(String name,String address, DeviceType type, String modelNumber) {
-	   this.name = name;
-	   this.address = address;
-	}
+
 	public int getKey_id() {
 		return key_id;
 	}
