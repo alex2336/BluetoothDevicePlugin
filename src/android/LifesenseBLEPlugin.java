@@ -16,9 +16,7 @@ import lifesense.ble.bean.PedometerData;
 import android.util.Log;
 import com.google.gson.Gson;
 import java.lang.System;
-	/**
-	 * This class echoes a string called from JavaScript.
-	 */
+
 	public class LifesenseBLEPlugin extends CordovaPlugin {
 		private DeviceManagerCallback mDelegate;    
 		private LSDeviceInfo mDevice;
