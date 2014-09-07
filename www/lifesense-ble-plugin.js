@@ -54,13 +54,13 @@ var lifesenseBLEPlugin = {
             [{}]
         ); 
      },
-     askForDataWithDevice:function(successCallback, errorCallback, device) {
+     askForDataWithDeviceName:function(successCallback, errorCallback, name) {
         cordova.exec(
             successCallback, 
             errorCallback, 
             'LifesenseBLEPlugin', 
-            'askForData',
-            [{device:device}]
+            'askForDataWithDeviceName',
+            [{name:name}]
         ); 
      },
      getData:function(successCallback, errorCallback) {
@@ -72,5 +72,14 @@ var lifesenseBLEPlugin = {
             [{}]
         ); 
      },
+     clearDeviceList:function(successCallback, errorCallback) {
+        cordova.exec(
+            successCallback, 
+            errorCallback, 
+            'LifesenseBLEPlugin', 
+            'clearDeviceList',
+            [{}]
+        ); 
+     }
 }
 module.exports = lifesenseBLEPlugin;
