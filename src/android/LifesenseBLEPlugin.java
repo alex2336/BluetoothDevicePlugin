@@ -35,6 +35,7 @@ import java.lang.System;
 		String PAIR_DEVICE = "pairDevice";
 		String GET_PARIED_DEVICE = "getPairedDevice";
 		String ASK_FOR_DATA = "askForData";
+		String ASK_FOR_DATA_WITH_DEVICE = "askForDataWithDevice";
 		String GET_DATA = "getData";
 
 		@Override
@@ -42,7 +43,7 @@ import java.lang.System;
 			Log.d(tag,action);
 			if (action.equals(ACTION_START_SCANNING)) {
 				Log.d("CordovaLog:","start scanning!");
-				startScanning();
+				startScanning(callbackContext);
 				return true;
 			}else if(action.equals(ACTION_STOP_SCANNING)){
 				stopScanning();
@@ -59,13 +60,16 @@ import java.lang.System;
 			}else if(action.equals(ASK_FOR_DATA)){
 				askForData();
 				return true;
+			}else if(action.equals(ASK_FOR_DATA_WITH_DEVICE)){
+				askForDataWithDevice(args.getString(0));
+				return true;
 			}else if(action.equals(GET_DATA)){
 				getData(callbackContext);
 				return true;
 			}
 			return false;
 		}
-		private void askForData(){
+		private void askForData(callbackContext){
 			mDelegate=new DeviceManagerCallback(){
 					@Override
 					public void onReceivePedometerMeasurementData(final PedometerData pData) {		
@@ -76,8 +80,12 @@ import java.lang.System;
 			};
 			bleDeviceManager.setCallback(mDelegate);
 			if(!bleDeviceManager.getDeviceMeasurementData(pairedDevice)){
+				callbackContext.error("OTHER TASKS ARE RUNNING!!");
 				Log.d(tag,"OTHER TASKS ARE RUNNING!!");
 			}
+		}
+		private void askForDataByDeviceName(String name){
+			
 		}
 		private void getData(CallbackContext callbackContext) {
 			JSONArray json = new JSONArray();
@@ -102,6 +110,7 @@ import java.lang.System;
 		private void startScanning(){
 			bleDeviceManager.setCallback(mDelegate);
 			bleDeviceManager.startScanning();
+			callbackContext.error("OTHER TASKS ARE RUNNING!!");
 		}
 		private void stopScanning(){
 			bleDeviceManager.stopScanning();
@@ -136,16 +145,7 @@ import java.lang.System;
 				e.printStackTrace();
 			}
 		}
-		private void sendErrorMessage(CallbackContext callbackContext, String errorMessage) {
-			JSONObject json = new JSONObject();
-			try{
-				json.put("error",errorMessage);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-			PluginResult result = new PluginResult(PluginResult.Status.OK, json);
-			callbackContext.sendPluginResult(result);
-		}
+
 		private void listKnownDevices(CallbackContext callbackContext) {
 
 			JSONArray json = new JSONArray();

@@ -54,6 +54,15 @@ var lifesenseBLEPlugin = {
             [{}]
         ); 
      },
+     askForDataWithDevice:function(successCallback, errorCallback, device) {
+        cordova.exec(
+            successCallback, 
+            errorCallback, 
+            'LifesenseBLEPlugin', 
+            'askForData',
+            [{device:device}]
+        ); 
+     },
      getData:function(successCallback, errorCallback) {
         cordova.exec(
             successCallback, 
